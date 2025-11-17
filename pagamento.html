@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento - Car Center</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+<body>
+  <header>
+    <img src="../img/banner.png" alt="Logo Mobilidade Flex" class="logo">
+    <h1>Car Center! Locadora de Carros - Pagamento</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="clientes.html">Clientes</a></li>
+        <li><a href="veiculos.html">Veículos</a></li>
+        <li><a href="sobre.html">Sobre Nós</a></li>
+        <li><a href="Feedback.html">Avalie Nós!</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="pagamento-container">
+    <h2>Finalize seu Pagamento</h2>
+
+    <form id="form-pagamento" class="form-pagamento">
+      <label for="nome">Nome no Cartão:</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite o nome impresso no cartão" required>
+
+      <label for="numero">Número do Cartão:</label>
+      <input type="text" id="numero" name="numero" placeholder="0000 0000 0000 0000" maxlength="19" required>
+
+      <div class="linha-campos">
+        <div>
+          <label for="validade">Validade:</label>
+          <input type="month" id="validade" name="validade" required>
+        </div>
+
+        <div>
+          <label for="cvv">CVV:</label>
+          <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="3" required>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-confirmar">Confirmar Pagamento</button>
+    </form>
+
+    <!-- ABA DE FEEDBACK -->
+    <div class="feedback-container" id="feedback-container" style="display:none;">
+      <h3>✅ Obrigado pela sua compra!</h3>
+      <p>Como você avalia sua experiência de pagamento?</p>
+
+      <div class="stars" id="stars">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+      </div>
+
+      <textarea id="comentario" placeholder="Deixe um comentário (opcional)"></textarea>
+      <button class="btn-feedback" id="btn-enviar">Enviar Avaliação</button>
+      <p class="agradecimento" id="agradecimento">⭐ Obrigado pelo seu feedback! ⭐</p>
+    </div>
+  </main>
+
+  <script>
+    const formPagamento = document.getElementById('form-pagamento');
+    const feedbackContainer = document.getElementById('feedback-container');
+    const stars = document.querySelectorAll('.star');
+    const agradecimento = document.getElementById('agradecimento');
+
+    // Mostra a aba de feedback após o envio do pagamento
+    formPagamento.addEventListener('submit', function(e) {
+      e.preventDefault();
+      formPagamento.style.display = 'none';
+      feedbackContainer.style.display = 'block';
+    });
+
+    // Sistema de estrelas
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        const rating = star.getAttribute('data-value');
+        stars.forEach(s => s.classList.remove('active'));
+        for (let i = 0; i < rating; i++) {
+          stars[i].classList.add('active');
+        }
+      });
+    });
+
+    // Agradecimento + redirecionamento
+    document.getElementById('btn-enviar').addEventListener('click', () => {
+      agradecimento.style.display = 'block';
+      setTimeout(() => {
+        agradecimento.style.display = 'none';
+        window.location.href = "index.html"; // Redireciona após 3s
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
+<footer>
+    <p>Todos os direitos reservados © 2025</p>
+</footer>
+

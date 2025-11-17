@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Veículos</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+  <link rel="shortcut icon" href="logo.png" type="imagem/x-con">
+</head>
+<body>
+  <header>
+    <h1>Cadastro de Veículos</h1>
+    <ul><li><a href="index.html">⬅ Voltar ao menu</a></li></ul>
+  </header>
+  <main>
+    <form id="formVeiculo">
+      <label>Marca: <input type="text" id="marcaVeiculo" required></label>
+      <label>Modelo: <input type="text" id="modeloVeiculo" required></label>
+      <label>Ano: <input type="number" id="anoVeiculo" required></label>
+      <label>Placa: <input type="text" id="placaVeiculo" required></label>
+      <label>Valor da diária: <input type="number" id="valorDiaria" required></label>
+      <button type="submit">Cadastrar Veículo</button>
+    </form>
+
+    <center><h2>Lista de Veículos</h2></center>
+    <ul id="listaVeiculos"></ul>
+  </main>
+</body>
+</html>
+
