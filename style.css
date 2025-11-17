@@ -6,7 +6,7 @@
 
 body {
   position: relative; /* precisa disso pro ::before funcionar direito */
-  background-image: url('../img/cye.png');
+  background-image: url('cye.png');
   background-size: cover;  
   background-position: center; /* centraliza pra não cortar */
   background-repeat: no-repeat;
